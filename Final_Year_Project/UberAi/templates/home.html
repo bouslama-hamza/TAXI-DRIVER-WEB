@@ -1,6 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
 <div class="home_page">
-    <h1>as a said its working </h1>
+    <div class="home_page_text">
+        <div class="home_text_start">Hello And Welcome To</div>
+        <div class="home_text_title">
+            <img src="{% static 'IMAGES/title.png' %}">
+        </div>
+        <div class="home_text_data">Join The Platform That Gives You Access To The Largest Network Of Active Passengers. We Provide For You Fastes , Easiast , And Most Comfortable Service Possible</div>
+        <div class="home_text_reference">
+            <input type="submit" value="Get Started">
+            <input type="submit" value="Contact Us">
+        </div>
+    </div>
+    <div class="home_page_image">
+        <img src="{% static 'IMAGES/background.png' %}">
+    </div>
 </div>
 {% endblock content %}
