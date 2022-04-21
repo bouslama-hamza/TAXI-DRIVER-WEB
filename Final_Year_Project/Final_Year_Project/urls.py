@@ -15,8 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path , include
+from django.contrib.auth import views as auth_views
+from UberAi.forms import UserLoginForm
 
 urlpatterns = [
     path('', include('UberAi.urls')),
     path('admin/', admin.site.urls),
+    path('log_in/', auth_views.LoginView.as_view(template_name = 'login.html' , authentication_form = UserLoginForm) , name = 'uberai-log-in'),
+    path('log_out/', auth_views.LogoutView.as_view(template_name = 'logout.html') , name = 'uberai-log-out'),
 ]
