@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="contact_page">
+    <div class="contact_page_image">
+        <img src="{% static 'IMAGES/contact.png' %}">
+    </div> 
+    <div class="contact_page_input">
+        <div class="contact_input_title">
+            Get In Touch With Us
+        </div>
+        <div class="contact_input_text">
+            We Are Really Looking Forward To Start Working With You , Fell Free To Get In  Touch With Us
+        </div>
+        <div class="contact_input_data">
+            <form action="{% url 'uberai-contact' %}" method="POST">
+                {% if alert %}
+                    <h3 style="margin-left: 120px;margin-bottom: 5px; color: green; font-family: Arial, Helvetica, sans-serif; font-size: 10px;">{{alert}}</h3>
+                {% endif %}
+                {% csrf_token %}
+                <input type="text" name="fullname" placeholder="Your Full Name" required>
+                <input type="email" name="address" placeholder="Your Email Address" required>
+                <textarea name="message" id="textarea" cols="30" rows="10" placeholder="Feel Free To Write What You Want"></textarea>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

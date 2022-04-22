@@ -12,14 +12,16 @@
         <div class="login_input_data">
             <form action="{% url 'uberai-log-in' %}" method="POST">
                 {% if form.errors %}
-                        <h3 style="margin-left: 120px;margin-bottom: 10px; color: red; font-family: Arial, Helvetica, sans-serif; font-size: 10px;">Invalid !! Please Check Your Information and Try again</h3>
+                    <h3 style="margin-left: 120px;margin-bottom: 10px; color: red; font-family: Arial, Helvetica, sans-serif; font-size: 10px;">Invalid !! Please Check Your Information and Try again</h3>
+                {% elif message %}
+                    <h3 style="margin-left: 120px;margin-bottom: 10px; color: green; font-family: Arial, Helvetica, sans-serif; font-size: 10px;">{{message}}</h3>
                 {% endif %}
                 {% csrf_token %}
                 {{ form.username }}
                 {{ form.password }}
-                <input type="submit" value="Log In">
+                <input style="padding: 0;" type="submit" value="Log In">
             </form>
-            <a href="#">Forget Password ? <p style="color: #161617;"></p></a>
+            <a href="{% url 'uberai-forget-password' %}">Forget Password ? <p style="color: #161617;"></p></a>
         </div>
     </div>
     <div class="login_page_image">

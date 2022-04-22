@@ -121,5 +121,3 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_URL = 'uberai-log-in'
-
-LOGIN_REDIRECT_URL = 'uber-app'
