@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 from UberAi.forms import UserLoginForm
 from UberAi.email_sender import SendEmail
+from django.contrib.auth.decorators import login_required
 
 def home(request):
     return render(request , 'home.html' , {'title' : 'Home'})
@@ -62,4 +63,7 @@ def contact(request):
         return render(request , 'contact.html' , {'title' : 'Contact', 'alert' : alert})
     return render(request , 'contact.html' , {'title' : 'Contact' })
 
+@login_required
+def app(request):
+    return render(request , 'app.html' , {'title' : 'App'})
     

@@ -8,4 +8,5 @@ urlpatterns = [
     path('confirm_password/' , views.confirm_password , name = 'uberai-confirm_password'),
     path('about/' , views.about , name = 'uberai-about'),
     path('contact/' , views.contact , name = 'uberai-contact'),
+    path('app/' , views.app , name = 'uberai-app'),
 ]

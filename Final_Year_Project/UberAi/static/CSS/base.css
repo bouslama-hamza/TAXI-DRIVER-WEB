@@ -1,0 +1,87 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #212227;
+}
+.app_home_page{
+    border: 1px solid white;
+    height: 648px;
+    display: flex;
+    border: none;
+}
+.app_home_settings{
+    border: 1px solid white;
+    height: 100%;
+    width: 19%;
+    position: fixed;
+    background-color: #23262d;
+}
+.app_home_content{
+    border: 1px solid white;
+    height: 100%;
+    width: 81%;
+}
+.app_home_border{
+    border: 1px solid white;
+    height: 100%;
+    width: 19%;
+    border: none;
+}
+.app_home_logo{
+    border: 1px solid white;
+    height: 9%;
+    background-color: #f7b03e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-size: small;
+    border: none;
+}
+.app_home_setting{
+    border: 1px solid white;
+    height: 100%;
+    border: none;
+}
+.app_setting_data{
+    border: 1px solid white;
+    height: 6%;
+}
+.app_content_header{
+    border: 1px solid white;
+    height: 9%;
+    width: 100%;
+    background-color: #23262d;
+    display: flex;
+}
+.app_header_title{
+    border: 1px solid white;
+    height: 100%;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    color: #f7b03e;
+}
+.app_header_icons{
+    border: 1px solid white;
+    height: 100%;
+    width: 15%;
+}
+.app_header_profile{
+    border: 1px solid white;
+    height: 100%;
+    width: 15%;
+}
+.app_home{
+    border: 1px solid white;
+    height: 86%;
+}
+.app_content_footer{
+    border: 1px solid white;
+    height: 5%;
+    background-color: #23262d;
+}

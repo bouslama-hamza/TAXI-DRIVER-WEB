@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'IMAGES/logo.png' %}" type="images/x-icon">
+    <link rel="stylesheet" href="{% static 'CSS/base.css' %}">
+    {% if title %}
+        <title>UberAi - {{title}}</title>
+    {% else %}
+        <title>UberAi</title>
+    {% endif %}
+</head>
+<body>
+    <div class="app_home_page">
+        <div class="app_home_border"></div>
+        <div class="app_home_settings">
+            <div class="app_home_logo">
+                <h1>Logo Here</h1>
+            </div>
+            <div class="app_home_setting">
+                <div class="app_setting_data"></div>
+                <div class="app_setting_data"></div>
+                <div class="app_setting_data"></div>
+                <div class="app_setting_data"></div>
+                <div class="app_setting_data"></div>
+            </div>
+        </div>
+        <div class="app_home_content">
+            <div class="app_content_header">
+                <div class="app_header_title"></div>
+                <div class="app_header_icons"></div>
+                <div class="app_header_profile"></div>
+            </div>
+            <!-- this is where our application -->
+                    {% block app %}
+                    {% endblock app %}
+            <!-- this is when our application end -->
+            <div class="app_content_footer"></div>
+        </div>
+    </div>
+</body>
+</html>
