@@ -17,9 +17,7 @@
     <div class="app_home_page">
         <div class="app_home_border"></div>
         <div class="app_home_settings">
-            <div class="app_home_logo">
-                <h1>Logo Here</h1>
-            </div>
+            <div class="app_home_logo"></div>
             <div class="app_home_setting">
                 <div class="app_setting_data"></div>
                 <div class="app_setting_data"></div>
@@ -30,9 +28,33 @@
         </div>
         <div class="app_home_content">
             <div class="app_content_header">
-                <div class="app_header_title"></div>
-                <div class="app_header_icons"></div>
-                <div class="app_header_profile"></div>
+                <div class="app_header_title">
+                    <div class="app_title_text">
+                        <img src="{% static 'IMAGES/big_logo_black.png' %}">
+                    </div>
+                    <div class="app_title_date">
+                        <p>Thursday</p>
+                        <p>28 April 2022</p>
+                        <p>2:34 AM</p>    
+                    </div>
+                </div>
+                <div class="app_header_icons">
+                    <img src="{% static 'ICONS/notification.png' %}">
+                </div>
+                <div class="app_header_profile">
+                    <img src="{% static 'ICONS/user.png' %}">
+                    <div class="app_profile_data">
+                        <h5>Hamza Bouslama</h5>
+                        <h6>Client</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="app_profile_setting">
+                <div class="app_setting_info">
+                    <div class="app_info_choice"><a href="#">Edit Profile</a></div>
+                    <div class="app_info_choice"><a href="#">Settings</a></div>
+                    <div style="border : none;" class="app_info_choice"><a href="{% url 'uberai-log-out' %}">Log Out</a></div>
+                </div>
             </div>
             <!-- this is where our application -->
                     {% block app %}

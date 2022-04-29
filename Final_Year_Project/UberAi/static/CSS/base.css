@@ -38,7 +38,6 @@ body{
     justify-content: center;
     align-items: center;
     color: white;
-    font-family: 'Open Sans', sans-serif;
     font-size: small;
     border: none;
 }
@@ -57,24 +56,86 @@ body{
     width: 100%;
     background-color: #23262d;
     display: flex;
+    border: none;
 }
 .app_header_title{
     border: 1px solid white;
     height: 100%;
-    width: 70%;
+    width: 75%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+}
+.app_title_text{
+    border: 1px solid white;
+    width: 40%;
+    height: 90%;
     display: flex;
     align-items: center;
+    border: none;
+}
+.app_title_text img{
+    width: 250px;
+}
+.app_title_date{
+    border: 1px solid white;
+    width: 40%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
     color: #f7b03e;
+    border: none;
+}
+.app_title_date p{
+    margin-right: 5px;
+    margin-left: 5px;
 }
 .app_header_icons{
     border: 1px solid white;
     height: 100%;
-    width: 15%;
+    width: 7%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+.app_header_icons img{
+    width: 22px;
 }
 .app_header_profile{
     border: 1px solid white;
     height: 100%;
-    width: 15%;
+    width: 18%;
+    display: flex;
+    align-items: center;
+    border: none;
+}
+.app_header_profile img{
+    width: 38px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.app_profile_data{
+    border: 1px solid white;
+    width: 70%;
+    height: 70%;
+    border: none;
+}
+.app_profile_data h5{
+    color: #f7b03e;
+    font-size: 12px;
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 6px;
+}
+.app_profile_data h6{
+    color: #7b777a;
+    font-size: 10px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    margin-top: 3px;
 }
 .app_home{
     border: 1px solid white;
@@ -84,4 +145,41 @@ body{
     border: 1px solid white;
     height: 5%;
     background-color: #23262d;
+}
+.app_profile_setting{
+    border: 1px solid white;
+    width: 79%;
+    height: 16%;
+    position: fixed;
+    display: flex;
+    justify-content:flex-end;
+    align-items: center;
+    border: none;
+    margin-top: 2px;
+}
+.app_setting_info{
+    border: 1px solid #2c2e35;
+    width: 15%;
+    height: 100%;
+    background-color: #23262d;
+    color: white;
+    border-radius: 3px;
+}
+.app_info_choice{
+    border-bottom: 0.3px solid rgb(71, 71, 71);
+    height: 33%;
+    display: flex;
+    align-items: center;
+}
+.app_setting_info a{
+    color: white;
+    text-decoration: none;
+    margin-left: 12px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    transition: all 0.2s linear;
+}
+.app_setting_info a:hover{
+    color: #f7b03e;
+    transition: all 0.2s linear;
 }
