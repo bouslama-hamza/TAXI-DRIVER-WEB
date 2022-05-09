@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from UberAi.forms import UserLoginForm
 from UberAi.email_sender import SendEmail
 from django.contrib.auth.decorators import login_required
+import datetime
 
 def home(request):
     return render(request , 'home.html' , {'title' : 'Home'})
@@ -65,5 +66,10 @@ def contact(request):
 
 @login_required
 def app(request):
-    return render(request , 'app.html' , {'title' : 'App'})
+    date ={
+        'day' : datetime.datetime.now().strftime("%A"),
+        'fulldate' : datetime.datetime.now().strftime("%d %B %Y"),
+        'time' : datetime.datetime.now().strftime("%H:%M %p")
+    }
+    return render(request , 'app.html' , {'title' : 'App' , 'date' : date})
     

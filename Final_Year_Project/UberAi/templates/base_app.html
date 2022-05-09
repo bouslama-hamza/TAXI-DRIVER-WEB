@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="{% static 'IMAGES/logo.png' %}" type="images/x-icon">
     <link rel="stylesheet" href="{% static 'CSS/base.css' %}">
-    {% if title %}
+    <link rel="stylesheet" href="{% static 'CSS/all.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/app.css' %}">
+    {% if title %} 
         <title>UberAi - {{title}}</title>
     {% else %}
         <title>UberAi</title>
@@ -19,49 +21,84 @@
         <div class="app_home_settings">
             <div class="app_home_logo"></div>
             <div class="app_home_setting">
-                <div class="app_setting_data"></div>
-                <div class="app_setting_data"></div>
-                <div class="app_setting_data"></div>
-                <div class="app_setting_data"></div>
-                <div class="app_setting_data"></div>
+                <a href="#">
+                    <div style="margin-top: 0;" class="app_setting_data">
+                        <i style="color: white;" class="fa fa-home"></i>
+                        <p>DASHBOARD</p>
+                    </div>
+                </a>
+                <a href="#">
+                    <div style="background-color: #30333c;" class="app_setting_data">
+                        <i style="color: white;" class="fa-solid fa-chart-pie"></i>
+                        <p style="color: white;">GENREAL VISUALISATION</p>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="app_setting_data">
+                        <i style="color: white;" class="fa-brands fa-nfc-symbol"></i>
+                        <p>AI SYSTEM PRIDECTION</p>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="app_setting_data">
+                        <i style="color: white;" class="fa-solid fa-taxi"></i>
+                        <p>TAXI ORDER SYSTEM</p>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="app_setting_data">
+                        <i style="color: white;" class="fa-solid fa-taxi"></i>
+                        <p>ADD SOMETHING</p>
+                    </div>
+                </a>
             </div>
         </div>
         <div class="app_home_content">
-            <div class="app_content_header">
+            <div class="app_content_header" id="app_content_header">
                 <div class="app_header_title">
                     <div class="app_title_text">
                         <img src="{% static 'IMAGES/big_logo_black.png' %}">
                     </div>
-                    <div class="app_title_date">
-                        <p>Thursday</p>
-                        <p>28 April 2022</p>
-                        <p>2:34 AM</p>    
-                    </div>
+                    {% if date %}
+                        <div class="app_title_date">
+                            <p>{{date.day}}</p>
+                            <p>{{date.fulldate}}</p>
+                            <p>{{date.time}}</p>    
+                        </div>
+                    {% endif %}
                 </div>
                 <div class="app_header_icons">
-                    <img src="{% static 'ICONS/notification.png' %}">
+                    <i class="fa-solid fa-bell"></i>
                 </div>
                 <div class="app_header_profile">
-                    <img src="{% static 'ICONS/user.png' %}">
+                    <img onclick="show()" src="{% static 'ICONS/user.png' %}">
                     <div class="app_profile_data">
-                        <h5>Hamza Bouslama</h5>
-                        <h6>Client</h6>
+                        <h5>{{user.first_name}} {{user.last_name}}</h5>
+                        {% if user.username == 'admin' %}
+                            <h6>{{user.username}}</h6>
+                        {% else %}
+                            <h6>Client</h6>
+                        {% endif %}
                     </div>
                 </div>
             </div>
+            <div class="app_border_header"></div>
             <div class="app_profile_setting">
-                <div class="app_setting_info">
+                <div class="app_setting_info" id="app_setting_info">
                     <div class="app_info_choice"><a href="#">Edit Profile</a></div>
                     <div class="app_info_choice"><a href="#">Settings</a></div>
                     <div style="border : none;" class="app_info_choice"><a href="{% url 'uberai-log-out' %}">Log Out</a></div>
                 </div>
             </div>
-            <!-- this is where our application -->
+            <!-- this is wher our application start-->
                     {% block app %}
                     {% endblock app %}
             <!-- this is when our application end -->
-            <div class="app_content_footer"></div>
+            <div class="app_content_footer">
+                Copyright@Um6p 2022
+            </div>
         </div>
     </div>
+    <script src="{% static 'JS/script.js' %}"></script>
 </body>
 </html>

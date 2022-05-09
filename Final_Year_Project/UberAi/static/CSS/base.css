@@ -13,7 +13,7 @@ body{
     border: none;
 }
 .app_home_settings{
-    border: 1px solid white;
+    border-right: 0.2px solid #4f5155;
     height: 100%;
     width: 19%;
     position: fixed;
@@ -23,6 +23,7 @@ body{
     border: 1px solid white;
     height: 100%;
     width: 81%;
+    border: none;
 }
 .app_home_border{
     border: 1px solid white;
@@ -48,14 +49,50 @@ body{
 }
 .app_setting_data{
     border: 1px solid white;
-    height: 6%;
+    height: 6.8%;
+    display: flex;
+    align-items: center;
+    color: #7b777a;
+    font-family:'Open Sans', sans-serif;
+    font-size: 11px;
+    text-align: center;
+    margin-top: 7px;
+    transition: all 0.1s linear;
+    border: none;
+}
+.app_setting_data:hover{
+    background-color: #30333c;
+    color: white;
+    transition: all 0.1s linear;
+    cursor: pointer;
+}
+.app_setting_data p{
+    margin-top: 3px;
+}
+a{
+    text-decoration: none;
+}
+.app_setting_data i{
+    margin-left: 15px;
+    margin-right: 20px;
+    font-size: 18px;
 }
 .app_content_header{
+    border-bottom: 1px solid #4f5155;
+    height: 9%;
+    background-color: #23262d;
+    display: flex;
+    position: fixed;
+    width: 80.8%;
+}
+.app_border_header{
+    border-bottom: 0.2px solid #4f5155;
+    height: 9%;
+}
+.app_content_border{
     border: 1px solid white;
     height: 9%;
     width: 100%;
-    background-color: #23262d;
-    display: flex;
     border: none;
 }
 .app_header_title{
@@ -103,8 +140,15 @@ body{
     align-items: center;
     border: none;
 }
-.app_header_icons img{
-    width: 22px;
+.app_header_icons i{
+    color: grey; 
+    font-size : 20px;
+    transition: all 0.1s linear;
+}
+.app_header_icons i:hover{
+    color: #f7b03e;
+    transition: all 0.1s linear;
+    cursor: pointer;
 }
 .app_header_profile{
     border: 1px solid white;
@@ -118,6 +162,7 @@ body{
     width: 38px;
     margin-right: 10px;
     margin-left: 10px;
+    cursor: pointer;
 }
 .app_profile_data{
     border: 1px solid white;
@@ -137,14 +182,16 @@ body{
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     margin-top: 3px;
 }
-.app_home{
-    border: 1px solid white;
-    height: 86%;
-}
 .app_content_footer{
-    border: 1px solid white;
+    border-top: 1px solid #4f5155;
     height: 5%;
     background-color: #23262d;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    color: #7b777a;
+    font-family: 'Open Sans', sans-serif;
+    font-size: small;
 }
 .app_profile_setting{
     border: 1px solid white;
@@ -164,6 +211,15 @@ body{
     background-color: #23262d;
     color: white;
     border-radius: 3px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s linear;
+    border: none;
+}
+.app_setting_info.active{
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.2s linear;
 }
 .app_info_choice{
     border-bottom: 0.3px solid rgb(71, 71, 71);

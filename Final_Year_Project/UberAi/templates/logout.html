@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="login_page">
+    <div style="margin-top: 100px;" class="login_page_input">
+        <div class="login_input_title">
+            <h1>You Are Now Loged Out</h1>
+        </div>
+        <div class="login_input_text">
+            Thank You For Using Our Service , You Can Log In Again Using The Following Button
+        </div>
+        <div class="login_input_data">
+            <a style="margin-left: 0px;" href="{% url 'uberai-log-in' %}">
+                <input style="padding: 0;" type="submit" value="Log In Again">
+            </a>
+        </div>
+    </div>
+    <div class="login_page_image" >
+        <img id="page_image" onload="rool_left(1300 , 700)" src="{% static 'IMAGES/log_in.png' %}">
+    </div>
+</div>
+{% endblock content %}

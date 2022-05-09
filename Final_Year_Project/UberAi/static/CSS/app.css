@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.app_home{
+    border: 1px solid white;
+    height: 100%;
+    margin-top: 2px;
+    border: none;
+}
+.app_home_title{
+    border: 1px solid white;
+    height: 10%;
+    width: 96%;
+    margin: 20px 20px;
+    display: flex;
+    align-items: center;
+    color: #beb7b7;
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+    border: none;
+}
+.app_home_body{
+    border: 1px solid #4f5155;;
+    height: 80%;
+    width: 96%;
+    margin: 20px 20px;
+    background-color: #272a31;
+}
