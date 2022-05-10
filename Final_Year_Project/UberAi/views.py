@@ -8,9 +8,6 @@ import datetime
 def home(request):
     return render(request , 'home.html' , {'title' : 'Home'})
 
-def app(request):
-    return render(request , 'app.html' ,{'title' : 'App'})
-
 def singup(request):
     send_email = SendEmail()
     if request.method == 'POST':
@@ -65,11 +62,11 @@ def contact(request):
     return render(request , 'contact.html' , {'title' : 'Contact' })
 
 @login_required
-def app(request):
+def general_visualisation(request):
     date ={
         'day' : datetime.datetime.now().strftime("%A"),
         'fulldate' : datetime.datetime.now().strftime("%d %B %Y"),
         'time' : datetime.datetime.now().strftime("%H:%M %p")
     }
-    return render(request , 'app.html' , {'title' : 'App' , 'date' : date})
+    return render(request , 'general_visualisation.html' , {'title' : 'General Visualisation' , 'date' : date})
     

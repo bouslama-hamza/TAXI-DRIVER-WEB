@@ -32,15 +32,17 @@ body{
     border: none;
 }
 .app_home_logo{
-    border: 1px solid white;
+    border-bottom: 1px solid #4f5155;
     height: 9%;
-    background-color: #f7b03e;
+    background-color: #23262d;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
     font-size: small;
-    border: none;
+}
+.app_home_logo img{
+    width: 250px;
 }
 .app_home_setting{
     border: 1px solid white;
@@ -111,9 +113,6 @@ a{
     display: flex;
     align-items: center;
     border: none;
-}
-.app_title_text img{
-    width: 250px;
 }
 .app_title_date{
     border: 1px solid white;
@@ -203,6 +202,7 @@ a{
     align-items: center;
     border: none;
     margin-top: 2px;
+    visibility: hidden;
 }
 .app_setting_info{
     border: 1px solid #2c2e35;
@@ -238,4 +238,34 @@ a{
 .app_setting_info a:hover{
     color: #f7b03e;
     transition: all 0.2s linear;
+}
+.app_setting_more{
+    border: 1px solid #4f5155;
+    height: 8%;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    border: none;
+}
+.app_more{
+    border: 0.5px solid #4f5155;
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.app_more i{
+    color: #f7b03e;
+    transition: all 0.5s linear;
+    font-size: 15px;
+}
+.app_more:hover i{
+    color: white;
+    transition: all 0.5s linear;
+}
+.app_more:hover{
+    background-color: #f7b03e;
+    transition: all 0.5s linear;
+    cursor: pointer;
 }

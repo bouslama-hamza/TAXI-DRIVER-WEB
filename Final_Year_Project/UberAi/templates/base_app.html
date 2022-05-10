@@ -8,7 +8,7 @@
     <link rel="icon" href="{% static 'IMAGES/logo.png' %}" type="images/x-icon">
     <link rel="stylesheet" href="{% static 'CSS/base.css' %}">
     <link rel="stylesheet" href="{% static 'CSS/all.css' %}">
-    <link rel="stylesheet" href="{% static 'CSS/app.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/general_visualisation.css' %}">
     {% if title %} 
         <title>UberAi - {{title}}</title>
     {% else %}
@@ -19,7 +19,9 @@
     <div class="app_home_page">
         <div class="app_home_border"></div>
         <div class="app_home_settings">
-            <div class="app_home_logo"></div>
+            <div class="app_home_logo">
+                <img src="{% static 'IMAGES/big_logo_black.png' %}">
+            </div>
             <div class="app_home_setting">
                 <a href="#">
                     <div style="margin-top: 0;" class="app_setting_data">
@@ -47,18 +49,30 @@
                 </a>
                 <a href="#">
                     <div class="app_setting_data">
-                        <i style="color: white;" class="fa-solid fa-taxi"></i>
-                        <p>ADD SOMETHING</p>
+                        <i style="color: white;" class="fa-solid fa-user-pen"></i>
+                        <p>PROFILE MODIFICATIONS</p>
                     </div>
                 </a>
+                <div class="app_setting_more">
+                    <div class="app_more">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                    <div class="app_more">
+                        <i class="fa-solid fa-calendar-check"></i>
+                    </div>
+                    <div class="app_more">
+                        <i class="fa-solid fa-signal"></i>
+                    </div>
+                    <div class="app_more">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="app_home_content">
             <div class="app_content_header" id="app_content_header">
                 <div class="app_header_title">
-                    <div class="app_title_text">
-                        <img src="{% static 'IMAGES/big_logo_black.png' %}">
-                    </div>
+                    <div class="app_title_text"></div>
                     {% if date %}
                         <div class="app_title_date">
                             <p>{{date.day}}</p>
