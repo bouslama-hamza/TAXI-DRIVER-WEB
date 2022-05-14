@@ -1,6 +1,7 @@
 {% load static %}
 {% url 'uberai-general-visualisation' as visual %}
 {% url 'uberai-profile-modification' as modification %}
+{% url 'uberai-system-pridection' as pridection %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +13,7 @@
     <link rel="stylesheet" href="{% static 'CSS/all.css' %}">
     <link rel="stylesheet" href="{% static 'CSS/general_visualisation.css' %}">
     <link rel="stylesheet" href="{% static 'CSS/profile_modification.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/system_pridection.css' %}">
     {% if title %} 
         <title>UberAi - {{title}}</title>
     {% else %}
@@ -38,8 +40,8 @@
                         <p >GENREAL VISUALISATION</p>
                     </div>
                 </a>
-                <a href="#">
-                    <div class="app_setting_data">
+                <a href="{% url 'uberai-system-pridection' %}">
+                    <div {% if request.path == pridection %} class="app_setting_data_color" {% else %} class="app_setting_data" {% endif %}>
                         <i style="color: white;" class="fa-brands fa-nfc-symbol"></i>
                         <p>AI SYSTEM PRIDECTION</p>
                     </div>
@@ -102,7 +104,7 @@
             <div class="app_border_header"></div>
             <div class="app_profile_setting">
                 <div class="app_setting_info" id="app_setting_info">
-                    <div class="app_info_choice"><a href="#">Edit Profile</a></div>
+                    <div class="app_info_choice"><a href="{% url 'uberai-profile-modification' %}">Edit Profile</a></div>
                     <div class="app_info_choice"><a href="#">Settings</a></div>
                     <div style="border : none;" class="app_info_choice"><a href="{% url 'uberai-log-out' %}">Log Out</a></div>
                 </div>

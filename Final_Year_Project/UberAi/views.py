@@ -92,3 +92,12 @@ def profile_modification(request):
     else:
         update_form = UserUpdateForm(instance = request.user)
     return render(request, 'profile_modification.html' , {'title' : 'Profile Modification' , 'update_form':update_form ,'date' : date} )
+
+@login_required
+def system_pridection(request):
+    date ={
+        'day' : datetime.datetime.now().strftime("%A"),
+        'fulldate' : datetime.datetime.now().strftime("%d %B %Y"),
+        'time' : datetime.datetime.now().strftime("%H:%M %p")
+    }
+    return render(request , 'system_pridection.html' ,{'title': 'Ai System Pridection' , 'date' : date})

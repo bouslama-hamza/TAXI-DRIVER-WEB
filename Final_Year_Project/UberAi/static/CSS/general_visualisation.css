@@ -94,7 +94,9 @@
 .app_table_data{
     border: 1px solid #ccc;
     height: 90%;
-    border: none;
+    border: none; 
+    overflow-y: scroll;   
+    scrollbar-face-color: black;
 }
 .app_title{
     border-bottom: 2px solid #3f424b;
@@ -116,11 +118,12 @@
     color: #f7b03e;
 }
 .app_table_content{
-    border-bottom: 2px solid #2a2d34;
+    border: 2px solid white;
     height: 10%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    margin-top: 5px;
     border: none;
 }
 .app_data{
