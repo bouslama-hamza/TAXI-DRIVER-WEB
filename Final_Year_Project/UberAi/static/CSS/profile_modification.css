@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.profile_page{
+    border: 1px solid white;
+    height: 560px;
+    margin-top: 1px;
+    border: none;
+}
+.profile_title{
+    border: 1px solid white;
+    height: 8%;
+    width: 96%;
+    margin: 20px 20px;
+    display: flex;
+    align-items: center;
+    color: #beb7b7;
+    font-size: 23px;
+    font-family: 'Open Sans', sans-serif;
+    border: none;
+}
+.profile_body{
+    border: 1px solid #4f5155;
+    height: 80%;
+    width: 96%;
+    margin: 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+}
+.profile_body_input{
+    border: 1px solid #4f5155;
+    height: 100%;
+    width: 47%;
+    background-color: #272a31;
+    padding-top: 30px;
+    border: none;
+}
+.profile_body_picture{
+    border: 1px solid #4f5155;
+    height: 100%;
+    width: 50%;
+    border: none;
+}
+.profile_body_input input[type = text] , 
+.profile_body_input input[type = password], 
+.profile_body_input input[type = email]{
+    border: 1px solid #ccc;
+    width: 90%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #ccc;
+    border-color: #7b777a;
+    border-radius: 2px;
+    background-color: transparent;
+    outline: #f7b03e;
+    margin: 5px 20px;
+    margin-bottom: 15px;
+}
+.profile_body_input input[type = submit]{
+    border: 1px solid #ccc;
+    width: 35%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: white;
+    border-color: #7b777a;
+    border-radius: 2px;
+    background-color: #f7b03e;
+    margin: 15px 59%;
+    margin-bottom: 15px;
+}
+.profile_body_picture img{
+    width: 500px;
+}

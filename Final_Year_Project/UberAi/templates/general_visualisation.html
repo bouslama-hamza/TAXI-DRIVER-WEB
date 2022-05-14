@@ -24,53 +24,28 @@
                     <div class="app_title"><h1>Status</h1><i class="fa-solid fa-signal"></i></div>
                 </div>
                 <div class="app_table_data">
-                    <div class="app_table_content">
-                        <div class="app_data">10 May 2022</div>
-                        <div class="app_data">15: 30 PM</div>
-                        <div class="app_data">Taxi Driver Add</div>
-                        <div class="app_data">0.79 %</div>
-                        <div class="app_data">New Detection</div>
-                    </div>
-                    <div class="app_table_content">
-                        <div class="app_data">10 May 2022</div>
-                        <div class="app_data">15: 30 PM</div>
-                        <div class="app_data">Taxi Driver Add</div>
-                        <div class="app_data">0.79 %</div>
-                        <div class="app_data">New Detection</div>
-                    </div>
-                    <div class="app_table_content">
-                        <div class="app_data">10 May 2022</div>
-                        <div class="app_data">15: 30 PM</div>
-                        <div class="app_data">Taxi Driver Add</div>
-                        <div class="app_data">0.79 %</div>
-                        <div class="app_data">New Detection</div>
-                    </div>
-                    <div class="app_table_content">
-                        <div class="app_data">10 May 2022</div>
-                        <div class="app_data">15: 30 PM</div>
-                        <div class="app_data">Taxi Driver Add</div>
-                        <div class="app_data">0.79 %</div>
-                        <div class="app_data">New Detection</div>
-                    </div>
-                    <div class="app_table_content">
-                        <div class="app_data">10 May 2022</div>
-                        <div class="app_data">15: 30 PM</div>
-                        <div class="app_data">Taxi Driver Add</div>
-                        <div class="app_data">0.79 %</div>
-                        <div class="app_data">New Detection</div>
-                    </div>
-                    <div class="app_table_content">
-                        <div class="app_data">10 May 2022</div>
-                        <div class="app_data">15: 30 PM</div>
-                        <div class="app_data">Taxi Driver Add</div>
-                        <div class="app_data">0.79 %</div>
-                        <div class="app_data">New Detection</div>
-                    </div>
+                    {% if data %}
+                        {% for i in data %}
+                            <div class="app_table_content">
+                                <div class="app_data">{{i.date}}</div>
+                                <div class="app_data">{{i.hour}}</div>
+                                <div class="app_data">{{i.type}}</div>
+                                <div class="app_data">{{i.confidence}}</div>
+                                {% if i.status == 'New Detection'%}
+                                    <div style="color: rgb(76, 151, 69);" class="app_data">{{i.status}}</div>
+                                {% elif i.status == 'Almost Detection' %}
+                                    <div style="color: #f7b03e;" class="app_data">{{i.status}}</div>
+                                {% else  %}
+                                    <div style="color: rgb(230, 117, 89);" class="app_data">{{i.status}}</div>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
                 </div>
             </div>
         </div>
         <div class="app_body_footer">
-            Showing 1 to 10 of 57 entries
+            Showing 1 to 10 of last Predection
         </div>
     </div>
 </div>

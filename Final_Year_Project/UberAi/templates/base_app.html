@@ -1,4 +1,6 @@
 {% load static %}
+{% url 'uberai-general-visualisation' as visual %}
+{% url 'uberai-profile-modification' as modification %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +11,7 @@
     <link rel="stylesheet" href="{% static 'CSS/base.css' %}">
     <link rel="stylesheet" href="{% static 'CSS/all.css' %}">
     <link rel="stylesheet" href="{% static 'CSS/general_visualisation.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/profile_modification.css' %}">
     {% if title %} 
         <title>UberAi - {{title}}</title>
     {% else %}
@@ -24,15 +27,15 @@
             </div>
             <div class="app_home_setting">
                 <a href="#">
-                    <div style="margin-top: 0;" class="app_setting_data">
+                    <div class="app_setting_data">
                         <i style="color: white;" class="fa fa-home"></i>
                         <p>DASHBOARD</p>
                     </div>
                 </a>
-                <a href="#">
-                    <div style="background-color: #30333c;" class="app_setting_data">
+                <a href="{% url 'uberai-general-visualisation' %}">
+                    <div {% if request.path == visual %} class="app_setting_data_color" {% else %} class="app_setting_data" {% endif %}>
                         <i style="color: white;" class="fa-solid fa-chart-pie"></i>
-                        <p style="color: white;">GENREAL VISUALISATION</p>
+                        <p >GENREAL VISUALISATION</p>
                     </div>
                 </a>
                 <a href="#">
@@ -47,8 +50,8 @@
                         <p>TAXI ORDER SYSTEM</p>
                     </div>
                 </a>
-                <a href="#">
-                    <div class="app_setting_data">
+                <a href="{% url 'uberai-profile-modification' %}">
+                    <div {% if request.path == modification %} class="app_setting_data_color" {% else %} class="app_setting_data" {% endif %}>
                         <i style="color: white;" class="fa-solid fa-user-pen"></i>
                         <p>PROFILE MODIFICATIONS</p>
                     </div>

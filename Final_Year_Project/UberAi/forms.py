@@ -22,6 +22,26 @@ class UserLoginForm(AuthenticationForm):
         model = User
         fields = ("username" , "password")
 
+# user update form
+class UserUpdateForm(UserCreationForm):
+
+    username = forms.CharField(max_length=30 , label= "" , widget=forms.TextInput({'placeholder':'Username'}))
+    first_name = forms.CharField(max_length=10 , label= "" , widget=forms.TextInput({'placeholder':'First Name'}))
+    last_name = forms.CharField(max_length=10 , label= "" , widget=forms.TextInput({'placeholder':'Last Name'}))
+    email = forms.EmailField(label= "" , widget=forms.EmailInput({'placeholder':'Email Adrress'}))
+    password1 = forms.CharField(label="",widget=forms.PasswordInput({'placeholder':'New Password'}))
+    password2 = forms.CharField(label="",widget=forms.PasswordInput({'placeholder':'Confirme New Password'}))
+
+    def __init__(self, *args, **kwargs):
+        super(UserUpdateForm, self).__init__(*args, **kwargs)
+
+        for fieldname in ["username", "first_name" ,"last_name" , "email", "password1", "password2" ]:
+            self.fields[fieldname].help_text = None
+
+    class Meta:
+        model = User
+        fields = ("username" ,"first_name" ,"last_name" , "email", "password1", "password2")
+
 class UserUpdateForm(UserCreationForm):
 
     username = forms.CharField(max_length=30 , label= "" , widget=forms.TextInput({'placeholder':'Username'}))

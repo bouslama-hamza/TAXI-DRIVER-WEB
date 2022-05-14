@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
-from UberAi.forms import UserLoginForm
+from UberAi.forms import UserLoginForm , UserUpdateForm
 from UberAi.email_sender import SendEmail
 from django.contrib.auth.decorators import login_required
 import datetime
+from UberAi.general_visualisation import visualisation
 
 def home(request):
     return render(request , 'home.html' , {'title' : 'Home'})
@@ -63,10 +64,31 @@ def contact(request):
 
 @login_required
 def general_visualisation(request):
+    data = visualisation()
     date ={
         'day' : datetime.datetime.now().strftime("%A"),
         'fulldate' : datetime.datetime.now().strftime("%d %B %Y"),
         'time' : datetime.datetime.now().strftime("%H:%M %p")
     }
-    return render(request , 'general_visualisation.html' , {'title' : 'General Visualisation' , 'date' : date})
+    return render(request , 'general_visualisation.html' , {'title' : 'General Visualisation' , 'date' : date , 'data' : data})
     
+@login_required
+def profile_modification(request):
+    date ={
+        'day' : datetime.datetime.now().strftime("%A"),
+        'fulldate' : datetime.datetime.now().strftime("%d %B %Y"),
+        'time' : datetime.datetime.now().strftime("%H:%M %p")
+    }
+    if request.method == 'POST':
+        update_form = UserUpdateForm(request.POST, instance = request.user)
+        if update_form.is_valid():
+            request.user.set_password(update_form.cleaned_data.get('password2'))
+            update_form.save()
+            message = 'Setting has been Updating Successfully'
+            return render(request , 'profile_modification.html' , {'update_form':update_form , 'message':message , 'title' : 'Profile Modification' , 'date' : date})
+        else:
+            error = 'Invalid Information Please Try Again'
+            return render(request , 'profile_modification.html' , {'update_form':update_form , 'error':error , 'title' : 'Profile Modification' , 'date' : date})
+    else:
+        update_form = UserUpdateForm(instance = request.user)
+    return render(request, 'profile_modification.html' , {'title' : 'Profile Modification' , 'update_form':update_form ,'date' : date} )

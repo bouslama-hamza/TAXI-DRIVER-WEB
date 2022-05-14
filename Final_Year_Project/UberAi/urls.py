@@ -9,4 +9,6 @@ urlpatterns = [
     path('about/' , views.about , name = 'uberai-about'),
     path('contact/' , views.contact , name = 'uberai-contact'),
     path('general_visualisation/' , views.general_visualisation , name = 'uberai-general-visualisation'),
+    path('profile_modification/' , views.profile_modification , name = 'uberai-profile-modification'),
+
 ]
