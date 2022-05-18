@@ -6,13 +6,16 @@
     </div>
     <div class="app_home_body">
         <div class="app_body_input">
-            <select name="data" id="data">
-                <option value="10">10</option>
-                <option value="25">25</option>
-                <option value="50">50</option>
-                <option value="100">100</option>
-            </select>
-            <input type="text" name="" id="" placeholder="Look For Specifc Time">
+            <form action="{% url 'uberai-general-visualisation' %}" method="POST">
+                {% csrf_token %}
+                <select name="data" id="data">
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+                <input type="submit" value="Download Data">
+            </form>
         </div>
         <div class="app_body_data">
             <div class="app_data_table">

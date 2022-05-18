@@ -2,9 +2,12 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 from UberAi.forms import UserLoginForm , UserUpdateForm
 from UberAi.email_sender import SendEmail
+from UberAi.download import download
 from django.contrib.auth.decorators import login_required
 import datetime
+from django.http import HttpResponse, Http404
 from UberAi.general_visualisation import visualisation
+import os
 
 def home(request):
     return render(request , 'home.html' , {'title' : 'Home'})
@@ -65,11 +68,19 @@ def contact(request):
 @login_required
 def general_visualisation(request):
     data = visualisation()
+    data.reverse()
     date ={
         'day' : datetime.datetime.now().strftime("%A"),
         'fulldate' : datetime.datetime.now().strftime("%d %B %Y"),
         'time' : datetime.datetime.now().strftime("%H:%M %p")
     }
+    if request.method == 'POST':
+        path = download(int(request.POST['data']))
+        with open(path, 'rb') as fh:
+            response = HttpResponse(fh.read(), content_type="application/vnd.ms-excel")
+            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(path)
+            os.remove(path)
+            return response
     return render(request , 'general_visualisation.html' , {'title' : 'General Visualisation' , 'date' : date , 'data' : data})
     
 @login_required

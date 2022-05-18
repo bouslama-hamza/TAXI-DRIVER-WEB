@@ -11,4 +11,6 @@ urlpatterns = [
     path('general_visualisation/' , views.general_visualisation , name = 'uberai-general-visualisation'),
     path('profile_modification/' , views.profile_modification , name = 'uberai-profile-modification'),
     path('system_pridection/' , views.system_pridection , name = 'uberai-system-pridection'),
+    path('try/' , views.download , name = 'test'),
+
 ]

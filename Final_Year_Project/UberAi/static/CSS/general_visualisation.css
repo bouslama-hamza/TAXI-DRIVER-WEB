@@ -64,6 +64,7 @@
     color: #7b777a;
     outline: none;
     padding-left: 10px;
+    margin-right: 733px;
 }
 .app_body_input input{
     border: 1px solid #ccc;
@@ -74,9 +75,15 @@
     width: 200px;
     border-color: #7b777a;
     border-radius: 2px;
-    padding-left: 10px;
     font-size: 11px;
     outline: none;
+    transition: all 0.2s linear;
+}
+.app_body_input input:hover{
+    cursor: pointer;
+    background-color: #7b777a;
+    color: white;
+    transition: all 0.2s linear;
 }
 .app_data_table{
     border: 1px solid #ccc;
