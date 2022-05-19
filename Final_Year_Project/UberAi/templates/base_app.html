@@ -3,6 +3,7 @@
 {% url 'uberai-profile-modification' as modification %}
 {% url 'uberai-system-pridection' as pridection %}
 {% url 'uberai-dashboard' as dashboard %} 
+{% url 'uberai-taxi-order' as taxi %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,8 +49,8 @@
                         <p>AI SYSTEM PRIDECTION</p>
                     </div>
                 </a>
-                <a href="#">
-                    <div class="app_setting_data">
+                <a href="{% url 'uberai-taxi-order' %}">
+                    <div {% if request.path == taxi %} class="app_setting_data_color" {% else %} class="app_setting_data" {% endif %}>
                         <i style="color: white;" class="fa-solid fa-taxi"></i>
                         <p>TAXI ORDER SYSTEM</p>
                     </div>

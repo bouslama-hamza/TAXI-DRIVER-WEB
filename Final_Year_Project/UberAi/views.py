@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
+from .models import Taxi
 from UberAi.forms import UserLoginForm , UserUpdateForm
 from UberAi.email_sender import SendEmail
 from UberAi.download import download
@@ -126,3 +127,13 @@ def dashboard(request):
         'time' : datetime.datetime.now().strftime("%H:%M %p")
     }
     return render(request , 'dashboard.html' , {'title' : 'DashBoard' ,'date' : date , 'data' : data , 'latest' : latest ,'confidence' :int(confidence)  ,'deconfidence' : round(100 - int(confidence) , 2), 'total' : total}) 
+
+@login_required
+def taxi_order(request):
+    data_taxi = Taxi.objects.all()
+    date ={
+        'day' : datetime.datetime.now().strftime("%A"),
+        'fulldate' : datetime.datetime.now().strftime("%d %B %Y"),
+        'time' : datetime.datetime.now().strftime("%H:%M %p")
+    }
+    return render(request ,'taxi_order.html' , {'title' : 'Taxi Order System' , 'date' :date , 'data' : data_taxi})

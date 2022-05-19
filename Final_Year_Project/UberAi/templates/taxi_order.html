@@ -1,0 +1,37 @@
+{% extends 'base_app.html' %}
+{% block app %}
+<div class="app_home">
+    <div class="app_home_title"> 
+        <p>TAXI ORDER SYSTEM</p>
+    </div>
+    <div class="app_home_body">
+        <div class="app_body_data">
+            <div class="app_data_table">
+                <div style="margin-top: 20px;" class="app_table_title">
+                    <div class="app_title"><h1>Full Name</h1><i class="fa-solid fa-file-signature"></i></div>
+                    <div class="app_title"><h1>Email Address</h1><i class="fa-solid fa-at"></i></div>
+                    <div class="app_title"><h1>Start Time</h1><i class="fa-solid fa-hourglass-start"></i></div>
+                    <div class="app_title"><h1>End Time</h1><i class="fa-solid fa-hourglass-end"></i></i></div>
+                    <div class="app_title"><h1>Phone Number</h1><i class="fa-solid fa-phone-volume"></i></div>
+                </div>
+                <div class="app_table_data">
+                    {% if data %}
+                        {% for i in data %}
+                            <div class="app_table_content">
+                                <div style="padding-left: 10px;" class="app_data">{{i.fullname}}</div>
+                                <div style="padding-left: 12px;" class="app_data">{{i.email}}</div>
+                                <div style="padding-left: 20px;" class="app_data">{{i.time_start}}</div>
+                                <div style="padding-left: 20px;" class="app_data">{{i.time_end}}</div>
+                                <div style="padding-left: 20px;" class="app_data">{{i.phone_number}}</div>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="app_body_footer">
+            Showing 1 to 10 of last Information
+        </div>
+    </div>
+</div>
+{% endblock app %}

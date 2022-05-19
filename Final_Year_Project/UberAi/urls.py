@@ -12,4 +12,5 @@ urlpatterns = [
     path('profile_modification/' , views.profile_modification , name = 'uberai-profile-modification'),
     path('system_pridection/' , views.system_pridection , name = 'uberai-system-pridection'),
     path('dashboard/' , views.dashboard , name = 'uberai-dashboard'),
+    path('taxi_order/',views.taxi_order , name = 'uberai-taxi-order')
 ]
