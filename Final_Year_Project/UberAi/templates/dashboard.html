@@ -1,34 +1,42 @@
 {% extends 'base_app.html' %}
 {% block app %}
-<div class="system_app">
-    <div class="system_title">
-        <p>AI SYSTEM PRIDECTION</p>
+<div class="dashboard_app">
+    <div class="dashboard_title">
+        <p>MY DASHBOARD</p>
     </div>
-    <div class="system_body">
-        <div class="system_data">
-            <div class="system_value">
-                <div class="ai_title"><i class="fa-brands fa-nfc-directional"></i>Newtest Pridection</div>
-                <div class="ai_body">
-                        <div class="ai_number">15 : 32 AM</div>
-                    <div class="ai_icons">
+    <div class="dashboard_body">
+        <div class="dashboard_data">
+            <div class="dashboard_value">
+                <div class="value_title"><i class="fa-solid fa-list-ol"></i>Latest Detection</div>
+                <div class="value_body">
+                    {% if latest >= 0 %}
+                        <div class="value_number">{{latest}}</div>
+                    {% endif %}
+                    <div class="value_icons">
                         <i class="fa-solid fa-arrow-up-right-dots"></i>
+                        <i class="fa-solid fa-arrow-down-wide-short" id="marg"></i>
                     </div>
-                    <div class="ai_more">
-                        <p>15%</p>
+                    <div class="value_more">
+                        {% if confidence %}
+                            <p>{{confidence}}%</p>
+                            <p id="marge">{{deconfidence}}%</p>
+                        {% endif %}
                     </div>
                 </div>
             </div>
-            <div class="system_total">
-                <div class="pridect_title"><i class="fa-solid fa-taxi"></i>Latest Detected Time</div>
-                <div class="pridect_body">
-                        <div class="pridect_number">15 : 32 AM</div>
-                    <div class="pridect_icons">
+            <div class="dashboard_total">
+                <div class="total_title"><i class="fa-solid fa-taxi"></i>Total Taxi Detection</div>
+                <div class="total_body">
+                    {% if total %}
+                        <div class="total_number">{{total}} P</div>
+                    {% endif %}
+                    <div class="total_icons">
                         <i class="fa-solid fa-square-plus"></i>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="system_table">
+        <div class="dashboard_table">
             <div class="app_data_table">
                 <div class="app_table_title">
                     <div class="app_title"><h1>Date</h1><i class="fa-solid fa-calendar-check"></i></div>
@@ -41,7 +49,7 @@
                         {% for i in data %}
                             <div style="height: 7.5%;" class="app_table_content">
                                 <div style="padding-left: 10px;" class="app_data">{{i.date}}</div>
-                                <div style="padding-left: 15px; color: #f7b03e;" class="app_data">{{i.hour}}</div>
+                                <div style="padding-left: 15px;" class="app_data">{{i.hour}}</div>
                                 <div style="padding-left: 20px;" class="app_data">{{i.type}}</div>
                                 <div style="padding-left: 25px;" class="app_data">{{i.confidence}}</div>
                             </div>

@@ -33,8 +33,12 @@
     height: 10%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     border: none;
+}
+.app_body_input form{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .app_body_data{
     border: 1px solid white;
@@ -64,7 +68,6 @@
     color: #7b777a;
     outline: none;
     padding-left: 10px;
-    margin-right: 733px;
 }
 .app_body_input input{
     border: 1px solid #ccc;
@@ -78,6 +81,7 @@
     font-size: 11px;
     outline: none;
     transition: all 0.2s linear;
+    margin-left: 15px;
 }
 .app_body_input input:hover{
     cursor: pointer;

@@ -2,6 +2,7 @@
 {% url 'uberai-general-visualisation' as visual %}
 {% url 'uberai-profile-modification' as modification %}
 {% url 'uberai-system-pridection' as pridection %}
+{% url 'uberai-dashboard' as dashboard %} 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +14,7 @@
     <link rel="stylesheet" href="{% static 'CSS/all.css' %}">
     <link rel="stylesheet" href="{% static 'CSS/general_visualisation.css' %}">
     <link rel="stylesheet" href="{% static 'CSS/profile_modification.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/dashboard.css' %}">
     <link rel="stylesheet" href="{% static 'CSS/system_pridection.css' %}">
     {% if title %} 
         <title>UberAi - {{title}}</title>
@@ -28,8 +30,8 @@
                 <img src="{% static 'IMAGES/big_logo_black.png' %}">
             </div>
             <div class="app_home_setting">
-                <a href="#">
-                    <div class="app_setting_data">
+                <a href="{% url 'uberai-dashboard' %}">
+                    <div {% if request.path == dashboard %} class="app_setting_data_color" {% else %} class="app_setting_data" {% endif %}>
                         <i style="color: white;" class="fa fa-home"></i>
                         <p>DASHBOARD</p>
                     </div>

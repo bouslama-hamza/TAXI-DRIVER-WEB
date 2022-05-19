@@ -5,8 +5,8 @@ from UberAi.email_sender import SendEmail
 from UberAi.download import download
 from django.contrib.auth.decorators import login_required
 import datetime
-from django.http import HttpResponse, Http404
-from UberAi.general_visualisation import visualisation
+from django.http import HttpResponse
+from UberAi.general_visualisation import visualisation , latest_detection
 import os
 
 def home(request):
@@ -67,7 +67,7 @@ def contact(request):
 
 @login_required
 def general_visualisation(request):
-    data = visualisation()
+    data = visualisation(10)
     data.reverse()
     date ={
         'day' : datetime.datetime.now().strftime("%A"),
@@ -106,9 +106,23 @@ def profile_modification(request):
 
 @login_required
 def system_pridection(request):
+    data = visualisation(100)
+    data.reverse()
     date ={
         'day' : datetime.datetime.now().strftime("%A"),
         'fulldate' : datetime.datetime.now().strftime("%d %B %Y"),
         'time' : datetime.datetime.now().strftime("%H:%M %p")
     }
-    return render(request , 'system_pridection.html' ,{'title': 'Ai System Pridection' , 'date' : date})
+    return render(request , 'system_pridection.html' ,{'title': 'Ai System Pridection' , 'date' : date , 'data' : data })
+
+@login_required
+def dashboard(request):
+    data = visualisation(100)
+    data.reverse()
+    latest , confidence ,total = latest_detection()
+    date ={
+        'day' : datetime.datetime.now().strftime("%A"),
+        'fulldate' : datetime.datetime.now().strftime("%d %B %Y"),
+        'time' : datetime.datetime.now().strftime("%H:%M %p")
+    }
+    return render(request , 'dashboard.html' , {'title' : 'DashBoard' ,'date' : date , 'data' : data , 'latest' : latest ,'confidence' :int(confidence)  ,'deconfidence' : round(100 - int(confidence) , 2), 'total' : total}) 
