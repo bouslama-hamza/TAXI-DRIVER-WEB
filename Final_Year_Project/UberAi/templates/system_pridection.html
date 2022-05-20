@@ -9,20 +9,26 @@
             <div class="system_value">
                 <div class="ai_title"><i class="fa-brands fa-nfc-directional"></i>Newtest Pridection</div>
                 <div class="ai_body">
-                        <div class="ai_number">15 : 32 AM</div>
+                    {% if new %}
+                        <div class="ai_number">{{new}}</div>
+                    {% endif %}
                     <div class="ai_icons">
                         <i class="fa-solid fa-arrow-up-right-dots"></i>
                     </div>
                     <div class="ai_more">
-                        <p>15%</p>
+                        {% if confidence %}
+                            <p>{{confidence}}%</p>
+                        {% endif %}
                     </div>
                 </div>
             </div>
             <div class="system_total">
-                <div class="pridect_title"><i class="fa-solid fa-taxi"></i>Latest Detected Time</div>
+                <div class="pridect_title"><i class="fa-solid fa-taxi"></i>Latest Pridected Time</div>
                 <div class="pridect_body">
-                        <div class="pridect_number">15 : 32 AM</div>
-                    <div class="pridect_icons">
+                        {% if before %}
+                            <div class="pridect_number">{{before}}</div>
+                        {% endif %}
+                        <div class="pridect_icons">
                         <i class="fa-solid fa-square-plus"></i>
                     </div>
                 </div>

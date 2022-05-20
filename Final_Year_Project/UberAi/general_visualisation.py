@@ -1,4 +1,5 @@
 import pandas as pd
+import datetime
 def visualisation(n):
     list = []
     df = pd.read_csv("UberAi/static/testing/test.csv" , nrows = n)
@@ -20,3 +21,14 @@ def to_solve():
         confidence = row[1]['confidence'].split("%")[0]
     return latest['New Detection'] - latest['Passed Detection'] 
 
+def return_time():
+    df = pd.read_csv("UberAi/static/testing/pridection.csv")
+    line = df.tail(1)
+    for row in line.iterrows():
+        new = row[1]['new_time']
+        before = row[1]['last_time']
+    time_new= str(datetime.timedelta(seconds=new)).split(":")
+    time_before = str(datetime.timedelta(seconds=int(before))).split(":")
+    time_new =time_new[0] + ":" +time_new[1] + " "+datetime.datetime.now().strftime("%p")
+    time_before =time_before[0] + ":" +time_before[1] + " "+datetime.datetime.now().strftime("%p")
+    return time_new , time_before

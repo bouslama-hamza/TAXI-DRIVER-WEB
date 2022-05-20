@@ -5,9 +5,10 @@ from UberAi.forms import UserLoginForm , UserUpdateForm
 from UberAi.email_sender import SendEmail
 from UberAi.download import download
 from django.contrib.auth.decorators import login_required
-import datetime
 from django.http import HttpResponse
-from UberAi.general_visualisation import visualisation , latest_detection
+from UberAi.pridection import Pridection
+from UberAi.general_visualisation import visualisation , latest_detection , return_time
+import datetime
 import os
 
 def home(request):
@@ -107,14 +108,19 @@ def profile_modification(request):
 
 @login_required
 def system_pridection(request):
+    new_time , before_time = return_time()
     data = visualisation(100)
+    _ , confidence ,_ = latest_detection()
     data.reverse()
     date ={
         'day' : datetime.datetime.now().strftime("%A"),
         'fulldate' : datetime.datetime.now().strftime("%d %B %Y"),
         'time' : datetime.datetime.now().strftime("%H:%M %p")
     }
-    return render(request , 'system_pridection.html' ,{'title': 'Ai System Pridection' , 'date' : date , 'data' : data })
+    if datetime.datetime.strptime(new_time.split(" ")[0], "%H:%M") < datetime.datetime.strptime(datetime.datetime.now().strftime("%H:%M"), "%H:%M"):
+        new_time , before_time = Pridection().generate_time()
+        return render(request , 'system_pridection.html' ,{'title': 'Ai System Pridection' , 'date' : date , 'data' : data , 'latest' : data[0]["hour"] , 'new' : new_time , 'before' : before_time , 'confidence' : int(confidence)})
+    return render(request , 'system_pridection.html' ,{'title': 'Ai System Pridection' , 'date' : date , 'data' : data , 'latest' : data[0]["hour"] , 'new' : new_time , 'before' : before_time , 'confidence' : int(confidence)})
 
 @login_required
 def dashboard(request):
@@ -123,7 +129,7 @@ def dashboard(request):
     latest , confidence ,total = latest_detection()
     date ={
         'day' : datetime.datetime.now().strftime("%A"),
-        'fulldate' : datetime.datetime.now().strftime("%d %B %Y"),
+        'fulldate' : datetime.datetime.now().strftime("%d %B %Y"), 
         'time' : datetime.datetime.now().strftime("%H:%M %p")
     }
     return render(request , 'dashboard.html' , {'title' : 'DashBoard' ,'date' : date , 'data' : data , 'latest' : latest ,'confidence' :int(confidence)  ,'deconfidence' : round(100 - int(confidence) , 2), 'total' : total}) 
