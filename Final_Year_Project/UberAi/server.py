@@ -3,7 +3,7 @@ from csv import writer
 from general_visualisation import to_solve
 from solver import get_data
 
-HOST = '192.168.100.77'
+HOST = '192.168.43.251'
 PORT = 65000
 
 with socket.socket(socket.AF_INET , socket.SOCK_STREAM) as s:
@@ -11,6 +11,7 @@ with socket.socket(socket.AF_INET , socket.SOCK_STREAM) as s:
     s.bind((HOST , PORT))
     s.listen(5)
     conn , addr = s.accept()
+    print("Connected to : ",addr)
     
     while True:
         result = conn.recv(1024).decode('utf-8')
@@ -18,7 +19,6 @@ with socket.socket(socket.AF_INET , socket.SOCK_STREAM) as s:
             print(result)
             if result.split(",")[4] == 'Passed Detection':   
                 latest = to_solve()
-                print(latest-1)
                 if (latest-1) < 0 :
                     make = get_data(result.split(",")[3])
                     with open("static/testing/test.csv" , 'a') as f:
@@ -32,10 +32,3 @@ with socket.socket(socket.AF_INET , socket.SOCK_STREAM) as s:
                 f.close()
 
         conn , addr = s.accept()
-                
-    
-
-
-
-                
-
