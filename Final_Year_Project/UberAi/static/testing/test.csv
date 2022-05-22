@@ -41,3 +41,7 @@ date,hour,type,confidence,status
 21 May 2022,00 : 17 AM,TAXI DRIVER,0.85%,Passed Detection
 21 May 2022,01 : 02 AM,TAXI DRIVER,0.88%,New Detection
 21 May 2022,00 : 17 AM,TAXI DRIVER,0.88%,Passed Detection
+21 May 2022,01 : 02 AM,TAXI DRIVER,0.88%,New Detection
+21 May 2022,01 : 02 AM,TAXI DRIVER,0.88%,New Detection
+21 May 2022,00 : 17 AM,TAXI DRIVER,0.88%,Passed Detection
+21 May 2022,00 : 17 AM,TAXI DRIVER,0.88%,Passed Detection

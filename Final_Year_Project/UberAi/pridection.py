@@ -14,6 +14,7 @@ class Pridection:
         self.URL = self.BASE_URL + "q=khouribga&appid=b95aec434694dd2839ad0fd6810ef875"
         self.response = requests.get(self.URL)
         self.df = pd.read_csv("UberAi/static/testing/pridection.csv")
+        self.db = pd.read_csv("UberAi/static/testing/test.csv")
         self.model = LinearRegression()
 
     def generate_weather(self):
@@ -28,7 +29,7 @@ class Pridection:
                 new_weather.append(row[1]['new_time'])
             return new_weather
         else:
-            print("Error in the HTTP request")
+            print("Error in the HTTP request")  
     
     def train_model(self):
         X = np.array(self.df[['day' , 'temp' , 'feels_like' , 'temp_min' , 'temp_max' , 'pressure' , 'humidity' , 'sea_level' ,'grnd_level' , 'last_time']])
