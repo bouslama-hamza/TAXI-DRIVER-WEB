@@ -17,18 +17,17 @@ def latest_detection():
 def to_solve():
     df = pd.read_csv("static/testing/test.csv")
     latest = df['status'].value_counts()
-    for row in df.iloc[[-1]].iterrows():
-        confidence = row[1]['confidence'].split("%")[0]
     return latest['New Detection'] - latest['Passed Detection'] 
 
 def return_time():
     df = pd.read_csv("UberAi/static/testing/pridection.csv")
+    db = pd.read_csv("UberAi/static/testing/test.csv")
     line = df.tail(1)
     for row in line.iterrows():
         new = row[1]['new_time']
         before = row[1]['last_time']
     time_new= str(datetime.timedelta(seconds=new)).split(":")
-    time_before = str(datetime.timedelta(seconds=int(before))).split(":")
     time_new =time_new[0] + ":" +time_new[1] + " "+datetime.datetime.now().strftime("%p")
-    time_before =time_before[0] + ":" +time_before[1] + " "+datetime.datetime.now().strftime("%p")
+    for row in db.tail(1).iterrows():
+        time_before = row[1]['hour'].split(" ")[0]+":"+row[1]['hour'].split(" ")[2]+" "+row[1]['hour'].split(" ")[3]
     return time_new , time_before

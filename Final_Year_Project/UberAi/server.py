@@ -3,7 +3,7 @@ from csv import writer
 from general_visualisation import to_solve
 
 HOST = '192.168.43.251'
-PORT = 65000
+PORT = 1234
 
 with socket.socket(socket.AF_INET , socket.SOCK_STREAM) as s:
 
@@ -20,6 +20,11 @@ with socket.socket(socket.AF_INET , socket.SOCK_STREAM) as s:
                 latest = to_solve()
                 if (latest-1) >= 0 :
                     with open("static/testing/test.csv" , 'a') as f:
+                        object_write = writer(f)
+                        object_write.writerow(result.split(','))
+                        f.close()
+            else:
+                with open("static/testing/test.csv" , 'a') as f:
                         object_write = writer(f)
                         object_write.writerow(result.split(','))
                         f.close()

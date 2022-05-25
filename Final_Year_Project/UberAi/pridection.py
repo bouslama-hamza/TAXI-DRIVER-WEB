@@ -25,8 +25,8 @@ class Pridection:
             weather = data['main']
             for i in weather.values():
                 new_weather.append(i)
-            for row in self.df.tail(1).iterrows():
-                new_weather.append(row[1]['new_time'])
+            for row in self.db.tail(1).iterrows():
+                new_weather.append(int(row[1]['hour'].split(" ")[0]+row[1]['hour'].split(" ")[2]))
             return new_weather
         else:
             print("Error in the HTTP request")  
@@ -54,8 +54,8 @@ class Pridection:
     def generate_time(self):
         array = self.add_to_csv()
         time_new= str(datetime.timedelta(seconds=int(array[10]))).split(":")
-        time_before = str(datetime.timedelta(seconds=int(array[9]))).split(":")
         time_new =time_new[0] + ":" +time_new[1] + " "+datetime.datetime.now().strftime("%p")
-        time_before =time_before[0] + ":" +time_before[1] + " "+datetime.datetime.now().strftime("%p")
+        for row in self.db.tail(1).iterrows():
+            time_before = row[1]['hour'].split(" ")[0]+":"+row[1]['hour'].split(" ")[2]+" "+row[1]['hour'].split(" ")[3]
         return time_new , time_before
 
