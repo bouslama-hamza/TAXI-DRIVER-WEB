@@ -1,13 +1,9 @@
 date,hour,type,confidence,status
+16 May 2022,06 : 15 AM,TAXI DRIVER,0.76%,New Detection
 16 May 2022,06 : 23 AM,TAXI DRIVER,0.76%,Passed Detection
 16 May 2022,06 : 15 AM,TAXI DRIVER,0.76%,New Detection
 16 May 2022,03 : 12 am,TAXI DRIVER,0.88%,Passed Detection
-16 May 2022,06 : 15 AM,TAXI DRIVER,0.76%,New Detection
-25 May 2022,04 : 30 AM,TAXI DRIVER,0.8%,New Detection
-25 May 2022,04 : 30 AM,TAXI DRIVER,0.94%,Passed Detection
-25 May 2022,04 : 32 AM,TAXI DRIVER,0.76%,New Detection
-25 May 2022,04 : 32 AM,TAXI DRIVER,0.87%,Passed Detection
-25 May 2022,05 : 10 AM,TAXI DRIVER,0.76%,New Detection
-25 May 2022,05 : 30 AM,TAXI DRIVER,0.76%,New Detection
-25 May 2022,05 : 41 AM,TAXI DRIVER,0.76%,New Detection
-
+27 May 2022,16 : 03 PM,TAXI DRIVER,0.82%,New Detection
+27 May 2022,16 : 08 PM,TAXI DRIVER,0.87%,Passed Detection
+27 May 2022,17 : 03 PM,TAXI DRIVER,0.82%,New Detection
+27 May 2022,16 : 08 PM,TAXI DRIVER,0.87%,Passed Detection

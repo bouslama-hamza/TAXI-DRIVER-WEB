@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
+from django.template import RequestContext
 from .models import Taxi
 from UberAi.forms import UserLoginForm , UserUpdateForm
 from UberAi.email_sender import SendEmail
@@ -10,6 +11,9 @@ from UberAi.pridection import Pridection
 from UberAi.general_visualisation import visualisation , latest_detection , return_time
 import datetime
 import os
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
+
 
 def home(request):
     return render(request , 'home.html' , {'title' : 'Home'})
@@ -124,22 +128,26 @@ def system_pridection(request):
 
 @login_required
 def dashboard(request):
-    data = visualisation(100)
-    data.reverse()
-    latest , confidence ,total = latest_detection()
     date ={
         'day' : datetime.datetime.now().strftime("%A"),
         'fulldate' : datetime.datetime.now().strftime("%d %B %Y"), 
         'time' : datetime.datetime.now().strftime("%H:%M %p")
     }
-    return render(request , 'dashboard.html' , {'title' : 'DashBoard' ,'date' : date , 'data' : data , 'latest' : latest ,'confidence' :int(confidence)  ,'deconfidence' : round(100 - int(confidence) , 2), 'total' : total}) 
+    return render(request , 'dashboard.html' , {'title' : 'DashBoard' ,'date' : date}) 
 
 @login_required
 def taxi_order(request):
     data_taxi = Taxi.objects.all()
-    date ={
+    date ={  
         'day' : datetime.datetime.now().strftime("%A"),
         'fulldate' : datetime.datetime.now().strftime("%d %B %Y"),
         'time' : datetime.datetime.now().strftime("%H:%M %p")
     }
     return render(request ,'taxi_order.html' , {'title' : 'Taxi Order System' , 'date' :date , 'data' : data_taxi})
+
+@csrf_exempt
+def datajson(request):
+    data = visualisation(100)
+    data.reverse() 
+    latest , confidence ,total = latest_detection()
+    return JsonResponse({'data' : data , 'latest' : str(latest) ,'confidence' :str(int(confidence))  ,'deconfidence' : str(round(100 - int(confidence) , 2)), 'total' : str(total)}) 

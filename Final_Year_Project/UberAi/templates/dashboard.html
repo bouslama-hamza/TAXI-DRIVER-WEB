@@ -9,27 +9,21 @@
             <div class="dashboard_value">
                 <div class="value_title"><i class="fa-solid fa-list-ol"></i>Latest Detection</div>
                 <div class="value_body">
-                    {% if latest >= 0 %}
-                        <div class="value_number">{{latest}}</div>
-                    {% endif %}
+                        <div class="value_number"></div>
                     <div class="value_icons">
                         <i class="fa-solid fa-arrow-up-right-dots"></i>
                         <i class="fa-solid fa-arrow-down-wide-short" id="marg"></i>
                     </div>
                     <div class="value_more">
-                        {% if confidence %}
-                            <p>{{confidence}}%</p>
-                            <p id="marge">{{deconfidence}}%</p>
-                        {% endif %}
+                        <p id="confidence"></p>
+                        <p id="marge"></p>
                     </div>
                 </div>
             </div>
             <div class="dashboard_total">
                 <div class="total_title"><i class="fa-solid fa-taxi"></i>Total Taxi Detection</div>
                 <div class="total_body">
-                    {% if total %}
-                        <div class="total_number">{{total}} P</div>
-                    {% endif %}
+                        <div class="total_number"></div>
                     <div class="total_icons">
                         <i class="fa-solid fa-square-plus"></i>
                     </div>
@@ -44,18 +38,7 @@
                     <div class="app_title"><h1>Type</h1><i class="fa-brands fa-typo3"></i></div>
                     <div class="app_title"><h1>Confidence</h1><i class="fa-brands fa-confluence"></i></div>
                 </div>
-                <div class="app_table_data">
-                    {% if data %}
-                        {% for i in data %}
-                            <div style="height: 7.5%;" class="app_table_content">
-                                <div style="padding-left: 10px;" class="app_data">{{i.date}}</div>
-                                <div style="padding-left: 15px;" class="app_data">{{i.hour}}</div>
-                                <div style="padding-left: 20px;" class="app_data">{{i.type}}</div>
-                                <div style="padding-left: 25px;" class="app_data">{{i.confidence}}</div>
-                            </div>
-                        {% endfor %}
-                    {% endif %}
-                </div>
+                <div class="app_table_data"></div>
             </div>
         </div>
     </div>
